@@ -1,91 +1,88 @@
 import math
 import numpy as np
 
-def demo(x):
-    '''
-    This is a demo function
-    Where in you just return square of the number
-    args:
-        x (int)
-    returns:
-        x*x (int)
-    '''
+ 
 
-    ## Code Here
-    return None
+def demo(x):
+    return x*x
+
+x=4
+print (demo(x))
+    
+   
 
 def is_palindrome(string):
-    '''
-    This function returns True if the given string is
-    a Palindrome
-    args:
-        string (str)
-    returns:
-        flag (bool)
-    '''
 
-    ## Code Here
-    return None
+	for i in range(0, int(len(string)/2)): 
+		if string[i] == string[len(string)-i-1]:
+			return True
+
+s = "civic"
+if (is_palindrome(s)):
+	print("True")
+else:
+	print("False")
+   
 
 def sqrt_of_numbers(num):
-    '''
-    This function returns the magnitude of the square root of the number
-    args:
-        num (int) Need not be positive
-    returns:
-        sqroot (float)
-    '''
+    return pow(num,1/2)
 
-    ## Code Here
-    return None
-
-def Maximum(arr):
-    '''
-    This function returns first maximum and the second minimum
-    number in the array
-    args:
-        arr (list)
-    returns:
-        Max1, Max2 (int, int)
-    '''
-
-    ## Code Here
-    return None
-
-def even_sort(arr):
-    '''
-    This function sorts the array giving higher preference to even numbers
-    args:
-        arr (list)
-    returns:
-        sort_arr (list)
-    ex:
-        arr = [15, 2, 6, 88, 7]
-        ## then
-        sort_arr = [2, 6, 88 ,7 ,15]
-        ## This is any even number is smaller than any odd number
-    '''
-
-    ## Code Here
-    return None
+num=5
+print (sqrt_of_numbers(num))
+    
 
 
-def eqn_solver(A, B, C):
-    '''
-    This function solves a two variable system
-    i.e.,
-        A = [ 1, 2 ]
-        B = [ 3, 4 ]
-        C = [ 5, 6 ]
-        then it means
-        1x + 3y = 5
-        2x + 4y = 6
-        Hence you are required to find x, y for such a linear system
-    args:
-        A, B, C (list, list, list) representing coefficients in the equation
-    returns:
-        x, y (float, float)
-    '''
 
-    ## Code Here
-    return None
+arr=[12, 45, 2, 41, 31, 10, 8, 6, 4]
+    
+length = len(arr) 
+arr.sort() 
+Max1 = arr[length-1]
+Max2 =  arr[1]
+print("Maximum number, Second minimum number (", Max1, ",", Max2, ")")
+
+
+def sort_arr(arr, arr_len): 
+      
+    l, r = 0, arr_len - 1
+    k = 0
+    
+    while(l < r):  
+        while(arr[l] % 2 != 0): 
+            l += 1
+            k += 1
+              
+         
+        while(arr[r] % 2 == 0 and l < r): 
+            r -= 1
+              
+
+        if(l < r): 
+            arr[l], arr[r] = arr[r], arr[l] 
+              
+
+    odd = arr[:k] 
+    even = arr[k:] 
+    
+    even.sort()
+    odd.sort() 
+      
+    even.extend(odd) 
+      
+    return even 
+      
+
+arr_len = 5
+arr = [15, 2, 6, 88, 7] 
+result = sort_arr(arr, arr_len) 
+for i in result: 
+    print(str(i) + " ") 
+  
+
+
+
+A = np.array([[1,3], [2, 4]])
+B = np.array([5,6])
+x = np.linalg.solve(A, B)
+
+print(x)
